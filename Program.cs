@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace PalkkaLaskin
+﻿namespace PalkkaLaskin
 {
     class Program
     {
@@ -8,35 +6,45 @@ namespace PalkkaLaskin
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-			Console.Write("Enter your hourly wage: ");
+            Console.Write("Enter your hourly pay: ");
 
             string? userInput = Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(userInput))
             {
-                Console.WriteLine("No user input");
+                Console.WriteLine("No user input found");
                 return;
             }
 
             float hourlyWage = float.Parse(userInput);
 
-            // calculate the wage per second and print it
             float wagePerSecond = hourlyWage / 3600;
             float totalWage = 0;
 
-			while (true)
+            Console.WriteLine("\nPress Q to end the pay calculation\n");
+
+            while (true)
             {
                 if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Q)
                 {
                     break;
                 }
 
-                Console.Write("Total wage: ");
+                Console.BackgroundColor = ConsoleColor.DarkCyan;
+                Console.Write("UPDATE");
+                Console.ResetColor();
 
-                Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                Console.Write(" ");
 
+                DateTime currentTime = DateTime.Now;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                Console.Write($"{currentTime}");
+                Console.ResetColor();
+
+                Console.Write(" Total money: ");
+
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.Write($"{Math.Round(totalWage, 2)}€");
-
                 Console.ResetColor();
 
                 Console.WriteLine();
