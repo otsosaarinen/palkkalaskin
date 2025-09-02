@@ -31,8 +31,18 @@ namespace PalkkaLaskin
                     break;
                 }
 
-                Console.WriteLine($"Total wage: {Math.Round(totalWage, 2)}€");
+                Console.Write("Total wage: ");
+
+                Console.BackgroundColor = ConsoleColor.DarkMagenta;
+
+                Console.Write($"{Math.Round(totalWage, 2)}€");
+
+                Console.ResetColor();
+
+                Console.WriteLine();
+
                 totalWage = totalWage + wagePerSecond;
+
                 Thread.Sleep(1000);
             }
         }
